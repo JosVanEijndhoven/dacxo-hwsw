@@ -20,8 +20,19 @@ This DAC design builds on previous experience: it is my 5th design.
 
 ## Contents
 
+This repository contains all hardware and software design aspects:
 
-The `esphome-ui` directory 
+- [The front control and remote UI software](./esphome-ui/)
+  based on a commercial *esp32-s3* board with display.
+- The digital signal processing board, schematics and PCB design,
+  in the `dacxo-hw/PCBs/PCB-dacxo/` folder.
+- The logic configuration of the FPGA on that board,
+  in the `dacxo-hw/FPGA-content/` folder.
+- The analog output board, schematics and PCB design,
+  in the `dacxo-hw/PCBs/PCB-opampout` folder.
+- The use of this DAC board as audio output in a Raspberry Pi
+  DLNA renderer, including Linux kernel drivers,
+  in the `dacxo-sw/RPi-audiodevice` folder.
 
 ## License
 All source and configuration files provided in this repository are provided without any warrenty,
