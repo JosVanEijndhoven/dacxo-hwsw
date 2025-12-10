@@ -1,40 +1,27 @@
-# Audio DAC control and UI
+# Audio DAC and digital pre-amp with low jitter
 
 ## Introduction
 
-This repository provides the control and user-interface software for my home-brewn audio DAC v5.
-This DAC can work as digital preamplifier, by providing 4 digital inputs and volume control.
-The digital inputs are optical and coax(spdif),
-with support for 44.1kHz and 48kHz sample rates and the x2 and x4 multiples thereof.
+This repository provides all HW and SW sources of my DIY audio DAC design.
+The 'audio Digital-to-Analog Conversion' is the heart and main aim of the design.
+However, more audio device functionality was built around that:
 
-This 'control and UI' is provided to run on a [Lilygo T-Display-s3](https://lilygo.cc/en-ca/products/t-display-s3)
-board, with an additional [rotary encoder](https://esphome.io/components/sensor/rotary_encoder.html)
-knob for volume control and press-click support for input channel selection and power on/off.
-As this implementation is based on [esphome](https://esphome.io/),
-it also provides its UI remotely (through wifi)
-in a [home assistant](https://www.home-assistant.io/) context on -for instance- a mobile phone or tablet.
-By slightly modifying the provided yaml configuration file, other control/display boards are easily allowed.
+- Functionality for a digital pre-amp is provided, with input selection
+  and volume control. Inputs are optical and coax SP/DIF, HDMI-arc, and a network DLNA player.
+- The control UI (user interface) is created with `esphome`.
+  Besides the front panel control knob, this also provides remote control from a mobile phone
+  and/or integration in *home assistant* automation environments.
+- The core DAC design aims for high-end audio, with a focus on low jitter, not
+  trying to reach low component cost.
+
+The intention is to show some solutions across a wide range of design choices,
+potentially of interest to other DIY audio enthousiasts. Supporting purely cloning the full hw/sw design is not the intention, as some design files might be outdated for the various and components tools that were used: the design start was around 2015. (But its development still continous in 2026...)
+This DAC design builds on previous experience: it is my 5th design.
 
 ## Contents
 
-The `dac.yaml` provided in the top directory is the main file,
-providing the configuration from which `esphome` creates the binary image to be downloaded
-in the Lilygo board.
-To allow a somewhat more concise configuration, new esphome 'components' are provided for the pcm1792 dac chips.
-They reside in the `components/pcm1792_i2c` subdirectory in this repo. Their C++ files are included
-in the code build process, through the `external_components` directive in the yaml file.
 
-## How to build
-
-Building the controller binary and uploading the binary image in the controller board
-can be done with the standard mechanisms as provided by [esphome](https://esphome.io/).
-Personally, I use a local installation of `esphome` and its command-line interface from a Linux shell.
-In that environment, the build and upload works like:
-```
-cd <top level directory of this repo>
-source <esphome install dir>/venv/bin/activate
-esphome run --device /dev/ttyACM0 dac.yaml
-```
+The `esphome-ui` directory 
 
 ## License
 All source and configuration files provided in this repository are provided without any warrenty,
