@@ -21,6 +21,9 @@ as some design files might be outdated for the various and components tools that
 the design start was around 2015. (But its development still continous in 2026...)
 This DAC design builds on previous experience: it is already my 5th design.
 
+Currently (december 2025) I just started to upload my design in github, and thereby make it public visible.
+I still have to spend further effort in documenting the design and its choices.
+
 ## Contents
 
 This repository contains all hardware and software design aspects:
@@ -36,7 +39,7 @@ This repository contains all hardware and software design aspects:
 
 A main focus on this design is having very good behavior on jitter (that is, achieve very low jitter).
 Already for decades now, jitter is known to badly affect the sound quality of digital audio reproduction.
-Unfortunaltely, achieving low jitter makes a device more expensive, and measuring jitter requires expensive specialised equipment.
+Unfortunately, achieving low jitter makes a device more expensive, and measuring jitter requires expensive specialised equipment.
 As result, many digital audio consumer products still show bad jitter behavoir.
 
 The audible effects of jitter in a digital audio player are:
@@ -48,12 +51,18 @@ The audible effects of jitter in a digital audio player are:
 Because many (cheaper) audio consumer devices behave badly in this respect, the old vinyl record playing has risen again in popularity.
 Luckily, good digital audio players don't show these artifacts, and can sound really natural and convincing!
 
-Presuambly in large part due to jitter effects, this DAC design sounds significantly better than for instance the *Cambridge Audio EXN100* player which I bought early 2025, which costs around 2000 US$. (That is in my opinion and some of my audio-loving friends.)
+Presuambly in large part due to jitter effects, this DAC design sounds significantly better than for instance the
+[Cambridge Audio EXN100 player](https://www.cambridgeaudio.com/row/en/products/ex/exn100) which I bought early 2025, 
+which costs around 2000 US$. (That is in my opinion and some of my audio-loving friends.)
+
+For further background information on jitter in digital audio, you can easily find many sources on internet.
 
 As a final note, jitter artefacts do not only occur in audio DAC (digital-to-analog conversion),
-but similarly in analog-to-digital conversion (ADC). So, a poor-quality studio recording (or home recording) will introduce jitter artefacts
-in the digital audio stream. Once in there, these jitter artefacts cannot be removed anymore: a bad recording will sound bad forever. 
-A good low-jitter player cannot improve a bad recording. Unfortunately, it seems to me that there exist many bad-quality recordings...
+but similarly in analog-to-digital conversion (ADC). So, a poor-quality studio recording (or home recording)
+will introduce jitter artefacts in the digital audio stream.
+Once in there, these jitter artefacts cannot be removed anymore: a bad recording will sound bad forever. 
+A good low-jitter player cannot improve a bad recording.
+Unfortunately, it seems to me that there exist many bad-quality recordings...
 
 ## License
 All source and configuration files provided in this repository are provided without any warrenty,
