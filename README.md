@@ -17,7 +17,7 @@ However, more audio device functionality was built around that:
 The intention of this repository is to show some solutions across a wide range of design choices,
 potentially of interest to other DIY audio enthousiasts.
 Supporting purely cloning the full hw/sw design is not the intention,
-as some design files might be outdated for the various and components tools that were used:
+as some design files might be outdated for the various tools and components that were used:
 the design start was around 2015. (But its development still continous in 2026...)
 This DAC design builds on previous experience: it is already my 5th design.
 
@@ -45,13 +45,13 @@ As result, many digital audio consumer products still show bad jitter behavoir.
 The audible effects of jitter in a digital audio player are:
 
 - Weak, uncontrolled, bass
-- Unfocussed stereo (and depth) imaging
+- Unfocussed and unstable stereo imaging
 - Unpleasantly sharp (metal-sounding) highs
 
 Because many (cheaper) audio consumer devices behave badly in this respect, the old vinyl record playing has risen again in popularity.
 Luckily, good digital audio players don't show these artifacts, and can sound really natural and convincing!
 
-Presuambly in large part due to jitter effects, this DAC design sounds significantly better than for instance the
+Presumably in large part due to jitter effects, this DAC design sounds significantly better than for instance the
 [Cambridge Audio EXN100 player](https://www.cambridgeaudio.com/row/en/products/ex/exn100) which I bought early 2025, 
 which costs around 2000 US$. (That is in my opinion and some of my audio-loving friends.)
 
