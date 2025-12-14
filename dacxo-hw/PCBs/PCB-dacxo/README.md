@@ -146,10 +146,7 @@ This design choice can be considered a digital PLL, with a very low-frequency fi
 Obviously, the good properties are that a) a high-quality low-jitter clock can be used,
 and b) all original audio sample values are retained as is.
 
-In this design, the audio sample buffer as well as the clock dividers
-for 1023 and 1025 (next to the default 1024) are implemented in the on-board FPGA.
-
-Because the number of buffered samples remains relatively small, it imposes a delay of not more then roughly 1 millisecond,
+Because the number of buffered samples remains relatively small, it imposes a delay of at most 14 millisecond,
 which means that the audio will remain in sync with video if the audio stream comes from an attached TV.
 
 ## Selection of DAC chip
@@ -169,8 +166,9 @@ Out of the bit-serial sp/dif data stream, 3 bytes per sample are taken (24 bits 
 For both the left and right audio channel, that takes 6 bytes per sample period.
 That means that the audio buffer can store (4k/6) is about 682 sample periods.
 
-For easy programming of the onboard FPGA, a USB interface module is added to the PCB, denoted as *U401* in the schematics.
+For easy programming of the onboard FPGA, a USB-to-jtag module is added to the PCB, denoted as *U401* in the schematics.
 This is a DLP-USB1232H module from DLP Design. It is only used for programming the FPGA. During normal DAC
 operation the module can harmlessly stay in place or can be removed.
 During programming, the PCB takes +5V from this module, and no other external power is needed.
+Note that there exist some late PCB wiring patches around its connection.
   

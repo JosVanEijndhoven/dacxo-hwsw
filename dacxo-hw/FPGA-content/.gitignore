@@ -5,7 +5,7 @@
 *.ibs
 *.ior
 *.arearep
-*.jed
+# *.jed
 *.mrp
 *.mt
 *.ncd
