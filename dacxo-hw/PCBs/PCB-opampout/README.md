@@ -11,8 +11,10 @@ The main functionality of this board is:
   next to a conventional (single-ended) cinch connector.
 
 ## Analog opamp output circuitry
-For analog signal handling, the board currently uses LME49720 type dual operational amplifiers.
-These are low-noise, low distortion, and low offset error opamps, intended for audio applications.
+Each of the four audio signal inputs should handle a DC input of 12.4mA with a max signal of +/- 7.8mA peak,
+and keep that pin at virtual gnd voltage.
+The output audio voltage is about 1.4Vrms on each of the four output pins,
+which means 2.8Vrms on the differential XLR output.
 
 The first stage of opamps (U202 and U204 in the schematic) are used for current-to-voltage conversion.
 The second stage of opamps (U201 and U203) are used for differential amplification
@@ -29,8 +31,16 @@ parallel to the 'main' resistors: this allows optional fine-tuning of the balanc
 if the initially obtained balance would not be satisfactory.
 For now, these extra resistor positions are not mounted.
 
-Due to accurate balancing, the analog oiutp[uts can be DC coupled to a power amplifier,
-which avoids potential signal disturbance from an output series capacitor.]
+Due to accurate balancing, the analog outputs can be DC coupled to a power amplifier,
+which avoids potential signal disturbance from an output series capacitor.
+
+The pcb has dil-8 footprints for all 6 (dual-) operational amplifiers.
+This is to mount sockets for easy exchange of opamp types.
+The schematics show LME49720 type dual opamps as default.
+These are good low-noise, low distortion, and low offset opamps, intended for audio applications.
+Later, I inserted a different type: four OPA1642 for the audio signal, and two NE5532 in the power-supply.
+The OPA1642 supposedly gives better sound in this circuit with common-mode audio signals,
+due to their unique voltage-independent input capacitance.
 
 For resistor type, the design uses MELF 'MMA 0204' professional grade Vishay Beyschlag resistors.
 These resistors have a decent *current noise* specification in their datasheet.

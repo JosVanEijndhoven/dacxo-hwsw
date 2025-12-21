@@ -166,6 +166,24 @@ and b) all original audio sample values are retained as is.
 Because the number of buffered samples remains relatively small, it imposes a delay of at most 14 millisecond,
 which means that the audio will remain in sync with video if the audio stream comes from an attached TV.
 
+## i2s input
+
+The extra i2s input is on the PCB as *P408*.
+In i2s mode, the PCB assumes clock master mode, where it provides the bit-clock and word-clock to the interface.
+So the peripheral (audio streamer) should configure its i2s output in clock slave mode.
+In this clock master mode, there is no need to synchronize with an external clock.
+Therefor, the fifo audio buffer is not used, nor is the +/- 0.1% clock rate adjustment.
+
+On *P408*, the following pin assignment is used (set by the FPGA configuration):
+
+- pin 1: gnd
+- pin 2: audio data input
+- pin 3: word clock output
+- pin 4: bit clock output
+
+After buffering with the crystal clock, these signals are passed as-is to the PCM1792 DAC chips.
+So their format (e.g. msb-first, left aligned) should match.
+
 ## Selection of DAC chip
 The PCB provides footprints for two different DAC chips: a pair of PCM1792A, or alternatively a pair of WM8741.
 This is intended for comparison, but for now only the PCM has been used.
@@ -180,4 +198,14 @@ This is a DLP-USB1232H module from DLP Design. It is only used for programming t
 operation the module can harmlessly stay in place or can be removed.
 During programming, the PCB takes +5V from this module, and no other external power is needed.
 Note that there exist some late PCB wiring patches around its connection.
+
+## Late patches on the digital PCB
+After assembly and test, a couple of small patches were done. These are not shown in the
+original Kicad schematics: those still belong to the PCB design.
+
+- Add a small rectifier diode from '+5Vana' to 'V5raw' for protection against power-up errors.
+- 'U403' (for jtag programming) was badly connected: Lift 'pin1' to de-connect from the pcb,
+  connect it to 'pin15' and 'pin8', and connect that triple to 'gnd'.
+- Replace R503 (47k) with 47 ohm.
+- Add a 4k7 resistor from 'rcv-rst' to 'gnd'.
   

@@ -37,7 +37,7 @@ This repository contains all hardware and software design aspects:
 
 ## Focus on Jitter
 
-A main focus on this design is having very good behavior on jitter (that is, achieve very low jitter).
+The main focus on this design is having really good behavior on jitter (that is, achieve very low jitter).
 Already for decades now, jitter is known to badly affect the sound quality of digital audio reproduction.
 Unfortunately, achieving low jitter makes a device more expensive, and measuring jitter requires expensive specialised equipment.
 As result, many digital audio consumer products still show bad jitter behavoir.
