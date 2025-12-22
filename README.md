@@ -1,5 +1,7 @@
 # Audio DAC and digital pre-amp with low jitter
 
+![overview photo](images/dac5-overview-850.jpg)
+
 ## Introduction
 
 This repository provides all HW and SW sources of my DIY audio DAC design.
